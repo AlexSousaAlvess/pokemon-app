@@ -7,8 +7,10 @@ import "./App.css";
 
 function App() {
   const [pokemons, setPokemons] = useState<Array<any>>([]);
-  const [limit, setLimit] = useState(20);
+  const [limit, setLimit] = useState(0);
   const [offset, setOffset] = useState(0);
+
+  setLimit(20);
 
   useEffect(() => {
     api
