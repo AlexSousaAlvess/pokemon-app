@@ -7,11 +7,12 @@ import "./App.css";
 
 function App() {
   const [pokemons, setPokemons] = useState<Array<any>>([]);
-  const [loading, setLoading] = useState<boolean>(true);
+  const [limit, setLimit] = useState(20);
+  const [offset, setOffset] = useState(0);
 
   useEffect(() => {
     api
-      .get("pokemon")
+      .get(`pokemon/?limit=${limit}&offset=${offset}`)
       .then((res) => {
         return res.data.results;
       })
@@ -20,18 +21,25 @@ function App() {
       })
       .then((results) => {
         setPokemons(results.map((res: any) => res.data));
-        setLoading(false);
       });
-  }, []);
+  }, [offset]);
+
+  const handleClick = (value: string) => {
+    value === "next"
+      ? setOffset(offset + 1)
+      : offset === 0
+      ? setOffset(0)
+      : setOffset(offset - 1);
+  };
 
   return (
     <>
-      {pokemons.length ? (
-        pokemons.map((pokemon) => (
-          <div className="container">
+      <div className="container">
+        {pokemons.length ? (
+          pokemons.map((pokemon) => (
             <div className="card">
               <div className="info">
-                <h3>{pokemon.name}</h3>
+                <h3>{`${pokemon.id} - ${pokemon.name}`}</h3>
                 <div className="images">
                   <img
                     src={pokemon.sprites["front_default"]}
@@ -44,11 +52,19 @@ function App() {
                 </div>
               </div>
             </div>
-          </div>
-        ))
-      ) : (
-        <img src={Spin} alt={"loading"} className="loading" />
-      )}
+          ))
+        ) : (
+          <img src={Spin} alt={"loading"} className="loading" />
+        )}
+      </div>
+      <div className="control">
+        <button onClick={() => handleClick("back")} value="back" type="button">
+          back
+        </button>
+        <button onClick={() => handleClick("next")} value="next" type="button">
+          next
+        </button>
+      </div>
     </>
   );
 }
