@@ -7,11 +7,11 @@ import "./App.css";
 
 function App() {
   const [pokemons, setPokemons] = useState<Array<any>>([]);
-  const [offset, setOffset] = useState(0);
+  const [offset, setOffset] = useState(10);
 
   useEffect(() => {
     api
-      .get(`pokemon/?limit=${20}&offset=${offset}`)
+      .get(`pokemon/?limit=${10}&offset=${offset}`)
       .then((res) => {
         return res.data.results;
       })
@@ -25,10 +25,10 @@ function App() {
 
   const handleClick = (value: string) => {
     value === "next"
-      ? setOffset(offset + 1)
+      ? setOffset(offset + 10)
       : offset === 0
       ? setOffset(0)
-      : setOffset(offset - 1);
+      : setOffset(offset - 10);
   };
 
   return (
