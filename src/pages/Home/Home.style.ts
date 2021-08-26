@@ -1,47 +1,49 @@
-.container {
+import Styled from "styled-components";
+
+export const Container = Styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-}
+`;
 
-.card {
+export const Card = Styled.div`
   -webkit-box-shadow: 0px 0px 10px 0px #000000;
   box-shadow: 0px 0px 10px 0px #000000;
   border-radius: 10px;
   margin: 10px;
 }
 
-.card:hover {
-  transform: scale(1.1);
-}
+  &:hover {
+    transform: scale(1.1);
+  }
+`;
 
-.info {
+export const Info = Styled.div`
   padding: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
-}
+`;
 
-.info .images {
+export const Images = Styled.div`
   display: flex;
   margin: 0;
   padding: 0;
-}
+`;
 
-.loading {
+export const Loading = Styled.img`
   display: flex;
   margin: auto;
   width: 50px;
   height: 100vh;
-}
+  `;
 
-.control {
+export const Control = Styled.div`
   display: flex;
   justify-content: center;
-}
 
-.control button {
+  button {
   margin: 10px;
   width: 80px;
   height: 30px;
@@ -52,13 +54,4 @@
   cursor: pointer;
   background-color: aliceblue;
 }
-
-@media (max-width: 350px) {
-  .container {
-    flex-direction: column;
-  }
-  .card {
-    width: 90%;
-    margin: 10px auto;
-  }
-}
+`;
