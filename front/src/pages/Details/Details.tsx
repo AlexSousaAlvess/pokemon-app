@@ -34,13 +34,13 @@ const Details = () => {
     <Container>
       <Button onClick={goBack}>Voltar</Button>
       <Title>{`${id} - ${result?.name}`}</Title>
-      <Image>
-        <img
-          src={result?.sprites["front_default"]}
-          alt={result?.name}
-          style={{ width: "200px" }}
-        />
-      </Image>
+      <Image
+        // src={result?.sprites["front_default"]}
+        src={result?.sprites["other"]["dream_world"]["front_default"]}
+        alt={result?.name}
+        style={{ width: "200px" }}
+      />
+
       <SubTitle>Golpes</SubTitle>
       <Abilities>
         {result?.abilities.map((item: any) => {

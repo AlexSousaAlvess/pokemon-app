@@ -4,7 +4,8 @@ export const Container = Styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 50%;
+  width: 90%;
+  /* height: 90%; */
   margin: 10px auto;
   -webkit-box-shadow: 0px 0px 10px 0px #000000;
   box-shadow: 0px 0px 10px 0px #000000;
@@ -21,9 +22,11 @@ export const SubTitle = Styled.h1`
   font-size: 16px;
 `;
 
-export const Image = Styled.div`
+export const Image = Styled.img`
+  height: 200px;
   border-radius: 50%;
   box-shadow: 0px 0px 10px 0px #000000;
+  object-fit: contain;
 `;
 
 export const Abilities = Styled.ul`
