@@ -45,7 +45,7 @@ export const Button = Styled.div`
   text-align: center;
   /* position: absolute; */
   margin-top: 10px;
-  margin-right: 100px;
+  margin-right: 250px;
 
   &:hover{
     cursor: pointer;
